@@ -11,8 +11,6 @@
   </div>
 </template>
 
-
-
 <script>
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
@@ -23,7 +21,9 @@ export default {
     return {
       swiperOption: {
         pagination: ".swiper-pagination",
-        loop: true
+        loop: true,
+        autoplay: 2000,
+        autoplayDisableOnInteraction: false
       },
       swiperList: [
         {
@@ -58,7 +58,7 @@ export default {
 
 
 <style lang="stylus" scoped>
-.swiper >>>swiper-pagination-bullet-active {
+.swiper >>> .swiper-pagination-bullet-active {
   background-color: #fff;
 }
 
