@@ -8,7 +8,7 @@
       输入城市/景点/游玩/主题
     </div>
     <div class="header-right">
-      城市
+      {{this.city}}
       <i class="iconfont">&#xe627;</i>
     </div>
   </div>
@@ -18,7 +18,13 @@
 import "@/assets/iconfont/demo.css";
 import "@/assets/iconfont/iconfont.css";
 export default {
-  name: "Header"
+  name: "Header",
+  props: {
+    city: String
+  },
+  mounted() {
+    console.log(this.city);
+  }
 };
 </script>
 

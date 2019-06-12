@@ -2,7 +2,7 @@
   <div>
     <div class="title">周末去哪</div>
     <ul>
-      <li class="item border-bottom" :key="item.id" v-for="item of recommendList">
+      <li class="item border-bottom" :key="item.id" v-for="item of weekendList">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt>
         </div>
@@ -19,81 +19,11 @@
 <script>
 export default {
   name: "HomeWeekend",
+  props: {
+    weekendList: Array
+  },
   data() {
-    return {
-      recommendList: [
-        {
-          id: "001",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "002",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "003",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "004",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "005",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "006",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "007",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "008",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "009",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "010",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
@@ -103,7 +33,7 @@ export default {
 .title {
   margin-top: 0.2rem;
   line-height: 0.8rem;
-  background-color: #ccc;
+  background-color: #eee;
   text-indent: 0.2rem;
 }
 
@@ -132,14 +62,17 @@ export default {
     .item-title {
       line-height: 0.54rem;
       font-size: 0.32rem;
+      padding-top: 0.2rem;
     }
 
     .item-desc {
       line-height: 0.4rem;
-      color: #ccc;
+      color: #616161;
+      font-size: 0.24rem;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      padding-bottom: 0.2rem;
     }
   }
 }

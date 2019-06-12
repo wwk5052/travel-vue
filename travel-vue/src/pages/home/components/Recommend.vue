@@ -18,81 +18,11 @@
 <script>
 export default {
   name: "HomeRecommend",
+  props: {
+    recommendList: Array
+  },
   data() {
-    return {
-      recommendList: [
-        {
-          id: "001",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "002",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "003",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "004",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "005",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "006",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "007",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "008",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "009",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        },
-        {
-          id: "010",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
-          title: "故宫",
-          desc: "这是故宫"
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
