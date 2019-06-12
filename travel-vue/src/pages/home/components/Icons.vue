@@ -111,6 +111,7 @@ export default {
 
 <style lang="stylus" scoped>
 .icons {
+  margin-top: 0.2rem;
   width: 100%;
   height: 0;
   padding-bottom: 50%;
