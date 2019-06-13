@@ -15,6 +15,7 @@ import HomeSwiper from "./components/Swiper";
 import HomeIcons from "./components/Icons";
 import HomeRecommend from "./components/Recommend";
 import HomeWeekend from "./components/Weekend";
+import { mapState } from "vuex";
 import axios from "axios";
 
 export default {
@@ -34,9 +35,12 @@ export default {
       weekendList: []
     };
   },
+  computed: {
+    ...mapState(["city"])
+  },
   methods: {
     getHomeInfo() {
-      axios.get("/api/index.json").then(this.getHomeInfoSucc);
+      axios.get("/api/index.json?city=" + this.city).then(this.getHomeInfoSucc);
     },
     getHomeInfoSucc(res) {
       const data = res.data;
@@ -50,6 +54,15 @@ export default {
   },
   mounted() {
     this.getHomeInfo();
+    this.lastCity = this.city;
+  },
+  //页面重新显示的时候
+  activated() {
+    //判断和原来的城市是不是相同的，如果不相同，那么再重新发送一次ajax请求即可
+    if (this.lastCity !== this.city) {
+      this.getHomeInfo();
+      this.lastCity = this.city;
+    }
   }
 };
 </script>
