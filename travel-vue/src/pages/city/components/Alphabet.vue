@@ -1,17 +1,17 @@
 <template>
-  <ul class="list">
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-  </ul>
+  <div>
+    <ul class="list" v-for="(item, key) of cities" :key="key">
+      <li class="item">{{key}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "CityAlphabet"
+  name: "CityAlphabet",
+  props: {
+    cities: Object
+  }
 };
 //文本元素使用弹性和模型垂直居中：
 //   display: flex;
@@ -33,7 +33,7 @@ export default {
   .item {
     text-align: center;
     line-heigth: 0.4rem;
-    color: #ccc;
+    color: #00bcd4;
   }
 }
 </style>
