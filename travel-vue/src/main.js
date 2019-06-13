@@ -9,6 +9,8 @@ import "swiper/dist/css/swiper.css";
 //移动端点击300ms延时问题
 import fastClick from "fastclick";
 
+import store from "./store/index";
+
 Vue.config.productionTip = false;
 fastClick.attach(document.body);
 
@@ -17,6 +19,7 @@ Vue.use(VueAwesomeSwiper /* { default global options } */);
 new Vue({
   el: "#app",
   router,
+  store,
   components: { App },
   template: "<App/>"
 });

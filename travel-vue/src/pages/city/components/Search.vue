@@ -5,7 +5,12 @@
     </div>
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li :key="item.id" v-for="item of list" class="search-item border-bottom">{{item.name}}</li>
+        <li
+          :key="item.id"
+          v-for="item of list"
+          class="search-item border-bottom"
+          @click="handleCityClick(item.name)"
+        >{{item.name}}</li>
         <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
       </ul>
     </div>
@@ -49,6 +54,13 @@ export default {
         }
         this.list = result;
       }, 100);
+    }
+  },
+  methods: {
+    handleCityClick(city) {
+      this.$store.dispatch("changeCity", city);
+      //函数式路由跳转
+      this.$router.push("/");
     }
   },
   mounted() {

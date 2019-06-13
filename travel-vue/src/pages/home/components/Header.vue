@@ -19,13 +19,11 @@
 <script>
 import "@/assets/iconfont/demo.css";
 import "@/assets/iconfont/iconfont.css";
+import { mapState } from "vuex";
 export default {
   name: "Header",
-  props: {
-    city: String
-  },
-  mounted() {
-    console.log(this.city);
+  computed: {
+    ...mapState(["city"])
   }
 };
 </script>
@@ -54,6 +52,7 @@ export default {
     margin-top: 0.12rem;
     height: 0.64rem;
     margin-left: 0.2rem;
+    margin-right: 0.1rem;
     color: #ccc;
     line-height: 0.64rem;
 
@@ -63,10 +62,11 @@ export default {
   }
 
   .header-right {
-    width: 1.24rem;
+    min-width: 1.04rem;
     float: right;
     text-align: center;
     color: #fff;
+    box-sizing: border-box;
   }
 }
 </style>
