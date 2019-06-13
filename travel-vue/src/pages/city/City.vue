@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :hotCities="hotCities" :cities="cities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-list :hotCities="hotCities" :cities="cities" :letter="letter"></city-list>
+    <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
   </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   data() {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ""
     };
   },
   components: {
@@ -41,7 +42,9 @@ export default {
         this.cities = data.data.cities;
         this.hotCities = data.data.hotCities;
       }
-      console.log(data.data);
+    },
+    handleLetterChange(letter) {
+      this.letter = letter;
     }
   }
 };
