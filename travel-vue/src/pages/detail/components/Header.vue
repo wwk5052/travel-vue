@@ -24,17 +24,19 @@ export default {
   activated() {
     window.addEventListener("scroll", this.handleScroll);
   },
+  deactivated() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
     handleScroll() {
       const top = document.documentElement.scrollTop;
       if (top > 60) {
         let opacity = top / 140;
-        console.log(opacity);
         opacity = opacity > 1 ? 1 : opacity;
         this.opacityStyle = { opacity };
-        this.showAbs = false;
-      } else {
         this.showAbs = true;
+      } else {
+        this.showAbs = false;
       }
     }
   }
@@ -71,6 +73,7 @@ export default {
   left: 0;
   right: 0;
   background-color: #00bcd4;
+  z-index: 99;
 
   .header-back {
     position: absolute;
