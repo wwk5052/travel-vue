@@ -61,6 +61,7 @@ export default {
       this.$store.dispatch("changeCity", city);
       //函数式路由跳转
       this.$router.push("/");
+      this.keyword = "";
     }
   },
   mounted() {
