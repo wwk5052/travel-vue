@@ -4,7 +4,7 @@
     <ul>
       <router-link
         tag="li"
-        to="/detail"
+        :to="'/detail/' + item.id"
         class="item border-bottom"
         :key="item.id"
         v-for="item of recommendList"

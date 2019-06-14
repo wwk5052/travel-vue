@@ -1,7 +1,7 @@
 <template>
   <div>
-    <detail-banner></detail-banner>
-    <detail-header></detail-header>
+    <detail-banner :sightName="sightName" :gallaryImgs="gallaryImgs" :bannerImg="bannerImg"></detail-banner>
+    <detail-header :sightName="sightName"></detail-header>
     <div class="contain">
       <detail-list :list="list"></detail-list>
     </div>
@@ -12,6 +12,7 @@
 import DetailBanner from "./components/Banner";
 import DetailHeader from "./components/Header";
 import DetailList from "./components/List";
+import axios from "axios";
 
 export default {
   name: "Detail",
@@ -22,24 +23,42 @@ export default {
   },
   data() {
     return {
-      list: [
-        {
-          title: "成人票",
-          children: [
-            {
-              title: "成人三管联票",
-              children: [{ title: "三管内的三管联票" }]
-            },
-            { title: "成人四管联票" },
-            { title: "成人五管联票" }
-          ]
-        },
-        {
-          title: "学生票",
-          children: [{ title: "学生四管联票" }, { title: "学生五馆联票" }]
-        }
-      ]
+      sightName: "",
+      bannerImg: "",
+      gallaryImgs: [],
+      list: []
     };
+  },
+  mounted() {
+    this.getDetailInfo();
+    this.lastnum = this.num;
+  },
+  methods: {
+    getDetailInfo() {
+      axios
+        .get("/api/detail.json", {
+          params: {
+            id: this.$route.params.id
+          }
+        })
+        .then(this.getDetailInfoSucc);
+    },
+    getDetailInfoSucc(res) {
+      const data = res.data;
+      if (data.ret && data.data) {
+        this.list = data.data.categoryList;
+        this.sightName = data.data.sightName;
+        this.gallaryImgs = data.data.gallaryImgs;
+        this.bannerImg = data.data.bannerImg;
+      }
+    }
+  },
+  // 使用keepalive解决页面重复缓存问题，页面打开就会重新请求
+  activated() {
+    if (this.lastnum !== this.num) {
+      this.getDetailInfo();
+      this.lastnum = this.num;
+    }
   }
 };
 </script>

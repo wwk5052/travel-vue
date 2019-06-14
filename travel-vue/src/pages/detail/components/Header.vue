@@ -4,7 +4,7 @@
       <i class="iconfont header-abs-back">&#xe682;</i>
     </router-link>
     <router-link tag="div" to="/" class="header-fixed" v-show="showAbs" :style="opacityStyle">
-      海上观光巴士
+      {{this.sightName}}
       <div class="iconfont header-back">&#xe682;</div>
     </router-link>
   </div>
@@ -13,6 +13,9 @@
 <script>
 export default {
   name: "DetailHeader",
+  props: {
+    sightName: String
+  },
   data() {
     return {
       showAbs: true,
@@ -21,15 +24,16 @@ export default {
       }
     };
   },
-  activated() {
+  mounted() {
     window.addEventListener("scroll", this.handleScroll);
   },
-  deactivated() {
+  unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll() {
       const top = document.documentElement.scrollTop;
+
       if (top > 60) {
         let opacity = top / 140;
         opacity = opacity > 1 ? 1 : opacity;
