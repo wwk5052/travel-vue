@@ -26,8 +26,11 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   deactivated() {
+<<<<<<< HEAD
     //页面隐藏的时候执行的钩子函数
     //在页面隐藏的时候对事件进行解绑
+=======
+>>>>>>> origin/detail-list
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
@@ -76,6 +79,7 @@ export default {
   left: 0;
   right: 0;
   background-color: #00bcd4;
+  z-index: 99;
 
   .header-back {
     position: absolute;
