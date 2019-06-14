@@ -19,9 +19,13 @@ export default new Router({
       component: City
     },
     {
-      path: "/detail",
+      path: "/detail/:id",
       name: "Detail",
       component: Detail
     }
-  ]
+  ],
+  //做路由切换的时候，进行页面的位置的初始化
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 });

@@ -21,16 +21,13 @@ export default {
       }
     };
   },
-  activated() {
+  mounted() {
     //页面展示的时候指向的钩子函数
     window.addEventListener("scroll", this.handleScroll);
   },
-  deactivated() {
-<<<<<<< HEAD
+  unmounted() {
     //页面隐藏的时候执行的钩子函数
     //在页面隐藏的时候对事件进行解绑
-=======
->>>>>>> origin/detail-list
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
