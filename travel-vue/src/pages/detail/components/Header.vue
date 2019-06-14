@@ -3,7 +3,7 @@
     <router-link tag="div" to="/" class="header-abs">
       <i class="iconfont header-abs-back">&#xe682;</i>
     </router-link>
-    <router-link tag="div" to="/" class="header-fixed" v-show="showAbs" :style="opacityStyle">
+    <router-link tag="div" to="/" class="header-fixed" v-show="showAbs" :style="this.opacityStyle">
       海上观光巴士
       <div class="iconfont header-back">&#xe682;</div>
     </router-link>
@@ -22,19 +22,24 @@ export default {
     };
   },
   activated() {
+    //页面展示的时候指向的钩子函数
     window.addEventListener("scroll", this.handleScroll);
+  },
+  deactivated() {
+    //页面隐藏的时候执行的钩子函数
+    //在页面隐藏的时候对事件进行解绑
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll() {
       const top = document.documentElement.scrollTop;
       if (top > 60) {
         let opacity = top / 140;
-        console.log(opacity);
         opacity = opacity > 1 ? 1 : opacity;
         this.opacityStyle = { opacity };
-        this.showAbs = false;
-      } else {
         this.showAbs = true;
+      } else {
+        this.showAbs = false;
       }
     }
   }
