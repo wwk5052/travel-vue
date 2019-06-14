@@ -10,6 +10,7 @@ import "swiper/dist/css/swiper.css";
 import fastClick from "fastclick";
 
 import store from "./store/index";
+import "babel-polyfill";
 
 Vue.config.productionTip = false;
 fastClick.attach(document.body);

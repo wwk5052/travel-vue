@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header">
     <router-link tag="div" to="/" class="header-abs">
       <i class="iconfont header-abs-back">&#xe682;</i>
     </router-link>
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      const top = document.documentElement.scrollTop;
+      const top = window.pageYOffset;
       if (top > 60) {
         let opacity = top / 140;
         opacity = opacity > 1 ? 1 : opacity;
